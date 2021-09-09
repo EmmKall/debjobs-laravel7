@@ -68,6 +68,7 @@
             @yield('content')
         </main>
     </div>
+
     @yield('plugins')
 </body>
 </html>

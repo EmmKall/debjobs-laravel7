@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ExperienciaSeed extends Seeder
+class UbicacionSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,56 +13,50 @@ class ExperienciaSeed extends Seeder
      */
     public function run()
     {
-        DB::table('experiencias')->insert([
-            'nombre' => '0 - 6 Meses',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'Remoto',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '6 Meses - 1 Año',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'USA',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '1 - 3 Años',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'México',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '3 - 5 Años',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'Canada',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '5 - 7 Años',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'España',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '7 - 10 meses',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'China',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '10 - 12 Años',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'Japon',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('experiencias')->insert([
-            'nombre' => '12 - 15 Años',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        DB::table('experiencias')->insert([
-            'nombre' => 'Más de 15 Años',
+        DB::table('ubicacions')->insert([
+            'nombre' => 'Otra',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

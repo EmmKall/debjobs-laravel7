@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Salario;
 use App\Vacante;
 use App\Categoria;
+use App\Ubicacion;
 use App\Experiencia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class VacanteController extends Controller
 {
@@ -34,10 +37,14 @@ class VacanteController extends Controller
 
         $categorias = Categoria::all();
         $experiencias = Experiencia::all();
+        $ubicaciones = Ubicacion::all();
+        $salarios = Salario::all();
 
         return view('vacantes.create')
              ->with('categorias', $categorias)
-             ->with('experiencias', $experiencias);
+             ->with('experiencias', $experiencias)
+             ->with('ubicaciones', $ubicaciones)
+             ->with('salarios' , $salarios);
     }
 
     /**
@@ -95,4 +102,24 @@ class VacanteController extends Controller
     {
         //
     }
+
+    public function imagen(Request $request)
+    {
+        $imagen = $request -> file('file');
+        $nombreImg = time() . '.' . $imagen->extension();
+        $imagen->move(public_path('storage/vacantes'), $nombreImg);
+
+        return response()->json(['correcto' => $nombreImg]);
+    }
+
+    public function borrarimg(Request $request){
+        if( $request->ajax() ){
+            $imagen =  $request->get('imagen');
+            if( File::exists( 'storage/vacantes/' . $imagen ) ){
+                FileDB::delete( 'storage/vacantes/' . $imagen );
+            }
+            return response('Imagen eliminada', 200);
+        }
+    }
+
 }
